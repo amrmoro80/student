@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 10px; /* Space between buttons */
+            margin-top: 20px; /* Space above buttons */
+        }
+        button {
+            padding: 10px 15px; /* Padding for buttons */
+            font-size: 16px; /* Font size for buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+            border: none; /* Remove default border */
+            background-color: #28a745; /* Green color for buttons */
+            color: white; /* Text color */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth background color change */
+        }
+        button:hover {
+            background-color: #218838; /* Darker shade on hover */
+        }
+        .session-inputs {
+            margin-bottom: 10px; /* Space between session inputs */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Grades Dashboard</h1>
+
+        <!-- Section for Admin to Add/Edit Grades -->
+        <div class="form-container">
+            <h2>Add/Edit Student Grade</h2>
+            <input type="text" id="studentName" placeholder="Student Name" required>
+            <input type="number" id="studentCode" placeholder="Student Code" required>
+            <div id="sessionContainer">
+                <div class="session-inputs">
+                    <input type="number" class="sessionNumber" placeholder="Session Number" required>
+                    <input type="text" class="homeworkScore" placeholder="Homework Score (or Not Done)">
+                    <input type="text" class="totalHomeworkScore" placeholder="Total Homework Score (or Not Done)">
+                    <input type="text" class="classworkScore" placeholder="Classwork Score (or Not Done)">
+                    <input type="text" class="totalClassworkScore" placeholder="Total Classwork Score (or Not Done)">
+                    <input type="text" class="examScore" placeholder="Exam Score (or Not Done)">
+                    <input type="text" class="totalExamScore" placeholder="Total Exam Score (or Not Done)">
+                    <label>
+                        <input type="checkbox" class="absent"> Absent
+                    </label>
+                </div>
+            </div>
+            <button onclick="addSession()">Add Another Session</button>
+            <div class="button-container">
+                <button id="addButton" onclick="addGrade()" aria-label="Add Grade">Add Grade</button>
+                <button id="editButton" onclick="updateGrade()" style="display:none;" aria-label="Update Grade">Update Grade</button>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <h2>Grades Table</h2>
+        <table id="gradesTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Session</th>
+                    <th>Homework</th>
+                    <th>Total Homework</th>
+                    <th>Classwork</th>
+                    <th>Total Classwork</th>
+                    <th>Exam</th>
+                    <th>Total Exam</th>
+                    <th>Absent</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Grades will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
